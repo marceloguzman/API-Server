@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": 999.99,
+    "category": "electronics",
+    "stock": 15
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "price": 699.99,
+    "category": "electronics",
+    "stock": 25
+  },
+  {
+    "id": 3,
+    "name": "Headphones",
+    "price": 149.99,
+    "category": "accessories",
+    "stock": 40
+  },
+  {
+    "id": 4,
+    "name": "Tablet",
+    "price": 399.99,
+    "category": "electronics",
+    "stock": 18
+  },
+  {
+    "id": 5,
+    "name": "Smartwatch",
+    "price": 249.99,
+    "category": "electronics",
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "name": "Wireless Mouse",
+    "price": 29.99,
+    "category": "accessories",
+    "stock": 50
+  },
+  {
+    "id": 7,
+    "name": "Bluetooth Speaker",
+    "price": 79.99,
+    "category": "electronics",
+    "stock": 22
+  },
+  {
+    "id": 8,
+    "name": "LED TV 55\"",
+    "price": 599.99,
+    "category": "electronics",
+    "stock": 10
+  },
+  {
+    "id": 9,
+    "name": "Gaming Keyboard",
+    "price": 89.99,
+    "category": "accessories",
+    "stock": 35
+  },
+  {
+    "id": 10,
+    "name": "External Hard Drive 1TB",
+    "price": 69.99,
+    "category": "storage",
+    "stock": 28
+  },
+  {
+    "id": 11,
+    "name": "USB Flash Drive 64GB",
+    "price": 19.99,
+    "category": "storage",
+    "stock": 60
+  },
+  {
+    "id": 12,
+    "name": "Webcam HD",
+    "price": 59.99,
+    "category": "electronics",
+    "stock": 20
+  },
+  {
+    "id": 13,
+    "name": "Router Wifi",
+    "price": 89.99,
+    "category": "networking",
+    "stock": 15
+  },
+  {
+    "id": 14,
+    "name": "Printer",
+    "price": 199.99,
+    "category": "electronics",
+    "stock": 12
+  },
+  {
+    "id": 15,
+    "name": "Desk Lamp",
+    "price": 39.99,
+    "category": "home",
+    "stock": 45
+  },
+  {
+    "id": 16,
+    "name": "Coffee Maker",
+    "price": 89.99,
+    "category": "home",
+    "stock": 18
+  },
+  {
+    "id": 17,
+    "name": "Microwave Oven",
+    "price": 129.99,
+    "category": "appliances",
+    "stock": 10
+  },
+  {
+    "id": 18,
+    "name": "Blender",
+    "price": 49.99,
+    "category": "appliances",
+    "stock": 25
+  },
+  {
+    "id": 19,
+    "name": "Toaster",
+    "price": 34.99,
+    "category": "appliances",
+    "stock": 30
+  },
+  {
+    "id": 20,
+    "name": "Air Fryer",
+    "price": 119.99,
+    "category": "appliances",
+    "stock": 20
+  },
+  {
+    "id": 21,
+    "name": "Gaming Console",
+    "price": 499.99,
+    "category": "gaming",
+    "stock": 8
+  },
+  {
+    "id": 22,
+    "name": "Video Game",
+    "price": 59.99,
+    "category": "gaming",
+    "stock": 50
+  },
+  {
+    "id": 23,
+    "name": "Gaming Headset",
+    "price": 79.99,
+    "category": "gaming",
+    "stock": 22
+  },
+  {
+    "id": 24,
+    "name": "Gaming Chair",
+    "price": 199.99,
+    "category": "furniture",
+    "stock": 12
+  },
+  {
+    "id": 25,
+    "name": "Office Chair",
+    "price": 149.99,
+    "category": "furniture",
+    "stock": 15
+  },
+  {
+    "id": 26,
+    "name": "Computer Desk",
+    "price": 179.99,
+    "category": "furniture",
+    "stock": 10
+  },
+  {
+    "id": 27,
+    "name": "Bookshelf",
+    "price": 129.99,
+    "category": "furniture",
+    "stock": 8
+  },
+  {
+    "id": 28,
+    "name": "Digital Camera",
+    "price": 349.99,
+    "category": "electronics",
+    "stock": 14
+  },
+  {
+    "id": 29,
+    "name": "Camera Tripod",
+    "price": 49.99,
+    "category": "accessories",
+    "stock": 20
+  },
+  {
+    "id": 30,
+    "name": "Camera Lens",
+    "price": 249.99,
+    "category": "photography",
+    "stock": 12
+  },
+  {
+    "id": 31,
+    "name": "Memory Card 128GB",
+    "price": 29.99,
+    "category": "storage",
+    "stock": 40
+  },
+  {
+    "id": 32,
+    "name": "External SSD 500GB",
+    "price": 89.99,
+    "category": "storage",
+    "stock": 22
+  },
+  {
+    "id": 33,
+    "name": "Graphics Card",
+    "price": 399.99,
+    "category": "components",
+    "stock": 8
+  },
+  {
+    "id": 34,
+    "name": "Processor",
+    "price": 299.99,
+    "category": "components",
+    "stock": 10
+  },
+  {
+    "id": 35,
+    "name": "RAM 16GB",
+    "price": 89.99,
+    "category": "components",
+    "stock": 25
+  },
+  {
+    "id": 36,
+    "name": "Power Supply 750W",
+    "price": 119.99,
+    "category": "components",
+    "stock": 15
+  },
+  {
+    "id": 37,
+    "name": "Motherboard",
+    "price": 159.99,
+    "category": "components",
+    "stock": 12
+  },
+  {
+    "id": 38,
+    "name": "Computer Case",
+    "price": 79.99,
+    "category": "components",
+    "stock": 18
+  },
+  {
+    "id": 39,
+    "name": "Monitor 27\"",
+    "price": 249.99,
+    "category": "electronics",
+    "stock": 14
+  },
+  {
+    "id": 40,
+    "name": "HDMI Cable",
+    "price": 14.99,
+    "category": "accessories",
+    "stock": 75
+  },
+  {
+    "id": 41,
+    "name": "USB-C Hub",
+    "price": 39.99,
+    "category": "accessories",
+    "stock": 30
+  },
+  {
+    "id": 42,
+    "name": "Wireless Earbuds",
+    "price": 99.99,
+    "category": "audio",
+    "stock": 35
+  },
+  {
+    "id": 43,
+    "name": "Portable Charger",
+    "price": 49.99,
+    "category": "accessories",
+    "stock": 40
+  },
+  {
+    "id": 44,
+    "name": "Phone Case",
+    "price": 19.99,
+    "category": "accessories",
+    "stock": 80
+  },
+  {
+    "id": 45,
+    "name": "Screen Protector",
+    "price": 9.99,
+    "category": "accessories",
+    "stock": 100
+  },
+  {
+    "id": 46,
+    "name": "Wireless Charger",
+    "price": 29.99,
+    "category": "accessories",
+    "stock": 45
+  },
+  {
+    "id": 47,
+    "name": "Smart Bulb",
+    "price": 24.99,
+    "category": "smart home",
+    "stock": 30
+  },
+  {
+    "id": 48,
+    "name": "Smart Speaker",
+    "price": 99.99,
+    "category": "smart home",
+    "stock": 20
+  },
+  {
+    "id": 49,
+    "name": "Smart Thermostat",
+    "price": 149.99,
+    "category": "smart home",
+    "stock": 15
+  },
+  {
+    "id": 50,
+    "name": "Security Camera",
+    "price": 129.99,
+    "category": "smart home",
+    "stock": 18
+  },
+  {
+    "id": 51,
+    "name": "Mechanical Keyboard",
+    "price": 129.99,
+    "category": "peripherals",
+    "stock": 25
+  },
+  {
+    "id": 52,
+    "name": "Running Shoes",
+    "price": 89.99,
+    "category": "sports",
+    "stock": 45
+  },
+  {
+    "id": 53,
+    "name": "Yoga Mat",
+    "price": 29.99,
+    "category": "sports",
+    "stock": 60
+  },
+  {
+    "id": 54,
+    "name": "Dumbbells Set",
+    "price": 119.99,
+    "category": "sports",
+    "stock": 18
+  },
+  {
+    "id": 55,
+    "name": "Tennis Racket",
+    "price": 79.99,
+    "category": "sports",
+    "stock": 22
+  },
+  {
+    "id": 56,
+    "name": "Basketball",
+    "price": 24.99,
+    "category": "sports",
+    "stock": 35
+  },
+  {
+    "id": 57,
+    "name": "Soccer Ball",
+    "price": 19.99,
+    "category": "sports",
+    "stock": 40
+  },
+  {
+    "id": 58,
+    "name": "Fitness Tracker",
+    "price": 79.99,
+    "category": "wearables",
+    "stock": 30
+  },
+  {
+    "id": 59,
+    "name": "Digital Scale",
+    "price": 34.99,
+    "category": "health",
+    "stock": 25
+  },
+  {
+    "id": 60,
+    "name": "Blood Pressure Monitor",
+    "price": 59.99,
+    "category": "health",
+    "stock": 20
+  },
+  {
+    "id": 61,
+    "name": "Acoustic Guitar",
+    "price": 199.99,
+    "category": "instruments",
+    "stock": 12
+  },
+  {
+    "id": 62,
+    "name": "Electric Guitar",
+    "price": 349.99,
+    "category": "instruments",
+    "stock": 8
+  },
+  {
+    "id": 63,
+    "name": "Digital Piano",
+    "price": 499.99,
+    "category": "instruments",
+    "stock": 5
+  },
+  {
+    "id": 64,
+    "name": "Drum Set",
+    "price": 599.99,
+    "category": "instruments",
+    "stock": 4
+  },
+  {
+    "id": 65,
+    "name": "Ukulele",
+    "price": 49.99,
+    "category": "instruments",
+    "stock": 15
+  },
+  {
+    "id": 66,
+    "name": "Microphone",
+    "price": 129.99,
+    "category": "audio",
+    "stock": 18
+  },
+  {
+    "id": 67,
+    "name": "Audio Interface",
+    "price": 159.99,
+    "category": "audio",
+    "stock": 12
+  },
+  {
+    "id": 68,
+    "name": "Studio Monitors",
+    "price": 299.99,
+    "category": "audio",
+    "stock": 8
+  },
+  {
+    "id": 69,
+    "name": "Sketchbook",
+    "price": 14.99,
+    "category": "art",
+    "stock": 50
+  },
+  {
+    "id": 70,
+    "name": "Painting Set",
+    "price": 39.99,
+    "category": "art",
+    "stock": 30
+  },
+  {
+    "id": 71,
+    "name": "Drawing Tablet",
+    "price": 199.99,
+    "category": "art",
+    "stock": 15
+  },
+  {
+    "id": 72,
+    "name": "Premium Pen Set",
+    "price": 49.99,
+    "category": "art",
+    "stock": 25
+  },
+  {
+    "id": 73,
+    "name": "Sewing Machine",
+    "price": 179.99,
+    "category": "crafts",
+    "stock": 10
+  },
+  {
+    "id": 74,
+    "name": "Knitting Kit",
+    "price": 29.99,
+    "category": "crafts",
+    "stock": 35
+  },
+  {
+    "id": 75,
+    "name": "Camping Tent",
+    "price": 149.99,
+    "category": "outdoors",
+    "stock": 15
+  },
+  {
+    "id": 76,
+    "name": "Sleeping Bag",
+    "price": 79.99,
+    "category": "outdoors",
+    "stock": 25
+  },
+  {
+    "id": 77,
+    "name": "Hiking Backpack",
+    "price": 89.99,
+    "category": "outdoors",
+    "stock": 20
+  },
+  {
+    "id": 78,
+    "name": "Portable Grill",
+    "price": 69.99,
+    "category": "outdoors",
+    "stock": 18
+  },
+  {
+    "id": 79,
+    "name": "Fishing Rod",
+    "price": 59.99,
+    "category": "outdoors",
+    "stock": 22
+  },
+  {
+    "id": 80,
+    "name": "Binoculars",
+    "price": 49.99,
+    "category": "outdoors",
+    "stock": 15
+  },
+  {
+    "id": 81,
+    "name": "Coffee Table",
+    "price": 159.99,
+    "category": "furniture",
+    "stock": 12
+  },
+  {
+    "id": 82,
+    "name": "Sofa",
+    "price": 799.99,
+    "category": "furniture",
+    "stock": 5
+  },
+  {
+    "id": 83,
+    "name": "Dining Table",
+    "price": 349.99,
+    "category": "furniture",
+    "stock": 8
+  },
+  {
+    "id": 84,
+    "name": "Bed Frame",
+    "price": 299.99,
+    "category": "furniture",
+    "stock": 10
+  },
+  {
+    "id": 85,
+    "name": "Mattress",
+    "price": 499.99,
+    "category": "furniture",
+    "stock": 12
+  },
+  {
+    "id": 86,
+    "name": "Floor Lamp",
+    "price": 69.99,
+    "category": "home",
+    "stock": 20
+  },
+  {
+    "id": 87,
+    "name": "Curtains",
+    "price": 39.99,
+    "category": "home",
+    "stock": 30
+  },
+  {
+    "id": 88,
+    "name": "Area Rug",
+    "price": 99.99,
+    "category": "home",
+    "stock": 15
+  },
+  {
+    "id": 89,
+    "name": "Kitchen Mixer",
+    "price": 149.99,
+    "category": "appliances",
+    "stock": 18
+  },
+  {
+    "id": 90,
+    "name": "Electric Kettle",
+    "price": 39.99,
+    "category": "appliances",
+    "stock": 25
+  },
+  {
+    "id": 91,
+    "name": "Food Processor",
+    "price": 129.99,
+    "category": "appliances",
+    "stock": 15
+  },
+  {
+    "id": 92,
+    "name": "Vacuum Cleaner",
+    "price": 179.99,
+    "category": "appliances",
+    "stock": 12
+  },
+  {
+    "id": 93,
+    "name": "Dishwasher",
+    "price": 449.99,
+    "category": "appliances",
+    "stock": 8
+  },
+  {
+    "id": 94,
+    "name": "Refrigerator",
+    "price": 899.99,
+    "category": "appliances",
+    "stock": 5
+  },
+  {
+    "id": 95,
+    "name": "Washing Machine",
+    "price": 599.99,
+    "category": "appliances",
+    "stock": 7
+  },
+  {
+    "id": 96,
+    "name": "Drone",
+    "price": 249.99,
+    "category": "photography",
+    "stock": 10
+  },
+  {
+    "id": 97,
+    "name": "Action Camera",
+    "price": 199.99,
+    "category": "photography",
+    "stock": 15
+  },
+  {
+    "id": 98,
+    "name": "Camera Flash",
+    "price": 79.99,
+    "category": "photography",
+    "stock": 20
+  },
+  {
+    "id": 99,
+    "name": "Premium Notebook",
+    "price": 1499.99,
+    "category": "electronics",
+    "stock": 3
+  },
+  {
+    "id": 100,
+    "name": "8K Television",
+    "price": 2999.99,
+    "category": "electronics",
+    "stock": 2
+  }
+] 
