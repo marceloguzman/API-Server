@@ -1,3 +1,11 @@
+/**
+ * Pruebas unitarias para el controlador de usuarios
+ * 
+ * Estas pruebas verifican que los métodos del controlador de usuarios
+ * funcionen correctamente tanto en casos normales como en situaciones de error.
+ */
+
+// Importamos los métodos del controlador que vamos a probar
 const { 
   getAllUsers, 
   getUserById, 
@@ -5,52 +13,90 @@ const {
   updateUser, 
   deleteUser 
 } = require('../../../src/controllers/userController');
+
+// Importamos las funciones del modelo que serán mockeadas
 const { loadJsonData, saveJsonData } = require('../../../src/models/dataLoader');
 
-// Mock dataLoader module
+/**
+ * MOCK DE MÓDULO ESPECÍFICO
+ * 
+ * A diferencia del mock completo de 'fs', aquí solo mockeamos el módulo dataLoader
+ * Jest reemplazará automáticamente todas las funciones de este módulo por mocks
+ * que podremos configurar en cada test.
+ */
 jest.mock('../../../src/models/dataLoader');
 
+/**
+ * SUITE DE PRUEBAS PRINCIPAL
+ */
 describe('User Controller', () => {
-  // Test data
+  /**
+   * DATOS DE PRUEBA
+   * 
+   * Definimos datos de prueba realistas que simulan usuarios 
+   * como los que manejaría la aplicación
+   */
   const mockUsers = [
     { id: '1', name: 'User 1', email: 'user1@example.com' },
     { id: '2', name: 'User 2', email: 'user2@example.com' }
   ];
 
-  // Mock request, response, and next objects
+  /**
+   * OBJETOS MOCK PARA EXPRESS
+   * 
+   * Estos objetos simulan los req, res y next que Express pasaría
+   * a los controladores en una petición real
+   */
   let req;
   let res;
   let next;
 
+  /**
+   * CONFIGURACIÓN ANTES DE CADA PRUEBA
+   * 
+   * Restablecemos el estado de los objetos mock antes de cada prueba
+   * para evitar interferencias entre pruebas diferentes
+   */
   beforeEach(() => {
-    // Reset mocks
+    // Limpiamos el historial y comportamiento de los mocks
     jest.clearAllMocks();
 
-    // Mock request, response, and next
+    // Configuración de objetos Express simulados
     req = {
-      params: {},
-      body: {},
-      query: {}
+      params: {},     // Parámetros de ruta (ej: /users/:id)
+      body: {},       // Cuerpo de la petición (ej: datos POST)
+      query: {}       // Parámetros de consulta (ej: ?page=1)
     };
+    
     res = {
+      // Función json simulada para capturar la respuesta
       json: jest.fn(),
+      
+      // Función status simulada que devuelve 'this' para permitir encadenamiento
+      // Esto permite probar res.status(200).json({...})
       status: jest.fn().mockReturnThis()
     };
+    
+    // Función next simulada para middleware de manejo de errores
     next = jest.fn();
 
-    // Default mock for loadJsonData
+    // Configuración predeterminada para loadJsonData
+    // Usamos spread operator para evitar modificar el array original en las pruebas
     loadJsonData.mockResolvedValue([...mockUsers]);
   });
 
+  /**
+   * PRUEBAS DEL MÉTODO getAllUsers
+   */
   describe('getAllUsers', () => {
     it('should return all users', async () => {
-      // Call the controller
+      // ACT: Llamamos al controlador como lo haría Express
       await getAllUsers(req, res, next);
 
-      // Check if loadJsonData was called correctly
+      // ASSERT: Verificamos que se leyó el archivo correcto
       expect(loadJsonData).toHaveBeenCalledWith('users.json');
 
-      // Check if response was sent correctly
+      // Verificamos la estructura de la respuesta API
       expect(res.json).toHaveBeenCalledWith({
         status: 'success',
         results: mockUsers.length,
@@ -58,45 +104,61 @@ describe('User Controller', () => {
       });
     });
 
+    /**
+     * PRUEBA DE MANEJO DE ERRORES
+     * 
+     * Verificamos que el controlador maneje correctamente los errores
+     * pasándolos al middleware next para su procesamiento
+     */
     it('should call next with error when loadJsonData fails', async () => {
-      // Setup loadJsonData to fail
+      // ARRANGE: Simulamos un error en la carga de datos
       const error = new Error('Test error');
       loadJsonData.mockRejectedValue(error);
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await getAllUsers(req, res, next);
 
-      // Check if next was called with the error
+      // ASSERT: Verificamos que el error es pasado a next
+      // Esto es crucial para el manejo centralizado de errores en Express
       expect(next).toHaveBeenCalledWith(error);
     });
   });
 
+  /**
+   * PRUEBAS DEL MÉTODO getUserById
+   */
   describe('getUserById', () => {
     it('should return the user with the specified ID', async () => {
-      // Set up request params
+      // ARRANGE: Simulamos un parámetro de ruta con ID
       req.params.id = '1';
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await getUserById(req, res, next);
 
-      // Check if loadJsonData was called correctly
+      // ASSERT: Verificamos la correcta carga de datos
       expect(loadJsonData).toHaveBeenCalledWith('users.json');
 
-      // Check if response was sent correctly
+      // Verificamos que la respuesta contiene el usuario correcto
       expect(res.json).toHaveBeenCalledWith({
         status: 'success',
         data: { user: mockUsers[0] }
       });
     });
 
+    /**
+     * PRUEBA DE CASO DE ERROR: RECURSO NO ENCONTRADO
+     * 
+     * Verificamos que se genere un error 404 cuando el recurso no existe
+     */
     it('should call next with 404 error when user is not found', async () => {
-      // Set up request params with non-existent ID
+      // ARRANGE: Simulamos búsqueda de un ID inexistente
       req.params.id = 'nonexistent';
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await getUserById(req, res, next);
 
-      // Check if next was called with 404 error
+      // ASSERT: Verificamos que se pasa un error 404 a next
+      // objectContaining permite verificar solo ciertas propiedades
       expect(next).toHaveBeenCalledWith(expect.objectContaining({
         statusCode: 404,
         message: 'User not found'
@@ -104,22 +166,27 @@ describe('User Controller', () => {
     });
   });
 
+  /**
+   * PRUEBAS DEL MÉTODO createUser
+   */
   describe('createUser', () => {
     it('should create a new user', async () => {
-      // Setup request body
+      // ARRANGE: Simulamos datos en el cuerpo de la petición
       req.body = { name: 'New User', email: 'newuser@example.com' };
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await createUser(req, res, next);
 
-      // Check if saveJsonData was called with the updated users array
+      // ASSERT: Verificamos que se guarda en la base de datos
+      // arrayContaining verifica que el array incluya ciertos elementos
       expect(saveJsonData).toHaveBeenCalledWith('users.json', expect.arrayContaining([
         ...mockUsers,
+        // Verificamos solo las propiedades que conocemos (el ID será generado)
         expect.objectContaining({ name: 'New User', email: 'newuser@example.com' })
       ]));
 
-      // Check if response was sent correctly
-      expect(res.status).toHaveBeenCalledWith(201);
+      // Verificamos el código de estado y la respuesta
+      expect(res.status).toHaveBeenCalledWith(201); // Código 201: Created
       expect(res.json).toHaveBeenCalledWith({
         status: 'success',
         data: { user: expect.objectContaining({ name: 'New User', email: 'newuser@example.com' }) }
@@ -127,22 +194,27 @@ describe('User Controller', () => {
     });
   });
 
+  /**
+   * PRUEBAS DEL MÉTODO updateUser
+   */
   describe('updateUser', () => {
     it('should update an existing user', async () => {
-      // Setup request
+      // ARRANGE: Simulamos ID en la ruta y datos a actualizar
       req.params.id = '1';
       req.body = { name: 'Updated User' };
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await updateUser(req, res, next);
 
-      // Check if saveJsonData was called with updated data
+      // ASSERT: Verificamos la actualización en la base de datos
       expect(saveJsonData).toHaveBeenCalledWith('users.json', expect.arrayContaining([
+        // El primer usuario debe tener el nombre actualizado
         expect.objectContaining({ id: '1', name: 'Updated User' }),
+        // El segundo usuario debe permanecer sin cambios
         mockUsers[1]
       ]));
 
-      // Check if response was sent correctly
+      // Verificamos la respuesta API
       expect(res.json).toHaveBeenCalledWith({
         status: 'success',
         data: { user: expect.objectContaining({ id: '1', name: 'Updated User' }) }
@@ -150,14 +222,14 @@ describe('User Controller', () => {
     });
 
     it('should call next with 404 error when user is not found', async () => {
-      // Setup request with non-existent ID
+      // ARRANGE: Simulamos ID inexistente
       req.params.id = 'nonexistent';
       req.body = { name: 'Updated User' };
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await updateUser(req, res, next);
 
-      // Check if next was called with 404 error
+      // ASSERT: Verificamos error 404
       expect(next).toHaveBeenCalledWith(expect.objectContaining({
         statusCode: 404,
         message: 'User not found'
@@ -165,18 +237,22 @@ describe('User Controller', () => {
     });
   });
 
+  /**
+   * PRUEBAS DEL MÉTODO deleteUser
+   */
   describe('deleteUser', () => {
     it('should delete an existing user', async () => {
-      // Setup request
+      // ARRANGE: Simulamos ID en la ruta
       req.params.id = '1';
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await deleteUser(req, res, next);
 
-      // Check if saveJsonData was called with the updated users array (without the deleted user)
+      // ASSERT: Verificamos que se guarda el array sin el usuario eliminado
+      // Aquí usamos una comparación exacta para verificar que solo queda el segundo usuario
       expect(saveJsonData).toHaveBeenCalledWith('users.json', [mockUsers[1]]);
 
-      // Check if response was sent correctly
+      // Verificamos que la respuesta incluye el usuario eliminado
       expect(res.json).toHaveBeenCalledWith({
         status: 'success',
         data: { user: mockUsers[0] }
@@ -184,13 +260,13 @@ describe('User Controller', () => {
     });
 
     it('should call next with 404 error when user is not found', async () => {
-      // Setup request with non-existent ID
+      // ARRANGE: Simulamos ID inexistente
       req.params.id = 'nonexistent';
 
-      // Call the controller
+      // ACT: Llamamos al controlador
       await deleteUser(req, res, next);
 
-      // Check if next was called with 404 error
+      // ASSERT: Verificamos error 404
       expect(next).toHaveBeenCalledWith(expect.objectContaining({
         statusCode: 404,
         message: 'User not found'
