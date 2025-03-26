@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "jest --watchAll --verbose",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
   },
   "keywords": [
@@ -28,6 +29,6 @@
   "devDependencies": {
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
-    "supertest": "^7.0.0"
+    "supertest": "^6.3.4"
   }
 }
