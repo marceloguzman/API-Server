@@ -1,8 +1,8 @@
-# Dependencias
+# Dependencies
 node_modules/
 package-lock.json
 
-# Variables de entorno
+# Environment variables
 .env
 
 # Logs
@@ -10,9 +10,9 @@ logs
 *.log
 npm-debug.log*
 
-# Directorios de sistema
+# System directories
 .DS_Store
 
-# Directorios de compilación
+# Build directories
 dist/
 build/ 
