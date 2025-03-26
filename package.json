@@ -1,7 +1,7 @@
 {
   "name": "api-server",
   "version": "1.0.0",
-  "description": "API server con Express para cargar datos desde archivos JSON",
+  "description": "Express API server that loads data from JSON files",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^3.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",

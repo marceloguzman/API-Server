@@ -6,6 +6,7 @@ const requestLogger = require('./middlewares/requestLogger');
 const errorHandler = require('./middlewares/errorHandler');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
+const dummyImageRoutes = require('./routes/dummyImageRoutes');
 
 // Initialize Express application
 const app = express();
@@ -20,6 +21,7 @@ app.use(requestLogger); // Request logging
 // API routes
 app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/products', productRoutes);
+app.use('/api/dummyImage', dummyImageRoutes);
 
 // Welcome route
 app.get('/', (req, res) => {
@@ -36,7 +38,8 @@ app.get('/api/v1', (req, res) => {
     message: 'API v1',
     endpoints: {
       users: '/api/v1/users',
-      products: '/api/v1/products'
+      products: '/api/v1/products',
+      dummyImage: '/api/dummyImage/:label/:width/:height'
     }
   });
 });
