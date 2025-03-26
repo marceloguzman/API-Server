@@ -12,6 +12,7 @@ API Server built with Express that loads data from JSON files.
 - Security with Helmet
 - CORS support
 - Environment variables with dotenv
+- Dummy image generation with custom dimensions and text
 
 ## Project Structure
 
@@ -99,6 +100,24 @@ npm start
 - `maxPrice` - Filter by maximum price
 
 Example: `GET /api/v1/products?category=electronics&minPrice=500`
+
+### Dummy Image Generator
+
+- `GET /api/dummyImage/:label/:width/:height` - Generate a dummy image with custom dimensions and text
+
+Parameters:
+- `label`: Text to display in the center of the image
+- `width`: Width of the image in pixels (positive integer)
+- `height`: Height of the image in pixels (positive integer)
+
+Example: `GET /api/dummyImage/Hello World/800/300`
+
+Features:
+- Generates a PNG image with a gradient background
+- Centers the provided text in the image
+- Supports URL-encoded text for spaces and special characters
+- Returns 400 error for invalid dimensions
+- Returns 404 error for non-existent routes
 
 ## Extending the API
 
